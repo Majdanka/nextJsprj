@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          "flex flex-wrap justify-center items-center m-0 p-0 bg-slate-300 " +
+          "flex flex-wrap justify-center items-center m-0 p-0 bg-slate-300 text-slate-600 " +
           inter.className
         }
       >
