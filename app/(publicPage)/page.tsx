@@ -1,9 +1,18 @@
-import { Metadata } from "next";
+import { GetServerSideProps, Metadata } from "next";
+import prisma from "../prisma";
 
 export const metadata: Metadata = {
   title: "Home | personal-site",
 };
 
-export default function Home() {
-  return <main className="w-[99%] rounded-3xl h-[80vh] bg-orange-200"></main>;
+export default async function Home() {
+  const users = await prisma.user.findMany();
+
+  return (
+    <main>
+      {users.map((user) => (
+        <div>{user.userName}</div>
+      ))}
+    </main>
+  );
 }
