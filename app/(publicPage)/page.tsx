@@ -5,5 +5,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <main className="w-[99%] rounded-3xl h-[80vh] bg-orange-200"></main>;
+  return (
+    <>
+      <main className="w-[79%] rounded-3xl h-[80vh] bg-orange-200"></main>
+      <aside className="w-[20%] rounded-3xl h-[80vh] bg-red-200"></aside>
+    </>
+  );
 }

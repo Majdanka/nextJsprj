@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex justify-center flex-col md:flex-row bg-gradient-to-r from-green-200 to-yellow-200 rounded-full m-1 h-16 items-center w-full">
-      <div className="flex justify-evenly w-2/3">
+    <header className="flex justify-center flex-row bg-gradient-to-r from-green-200 to-yellow-200 rounded-full m-1 h-16 items-center w-full">
+      <div className="flex justify-evenly md:w-2/3 w-1/2">
         <div className="flex h-16 align-middle w-full pl-1 items-center">
           <Logo />
           <Link href="../..">
@@ -13,7 +13,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
-      <nav className="flex justify-evenly w-1/3 font-semibold">
+      <nav className="flex justify-evenly md:w-1/3 font-semibold w-1/2">
         <NavBar />
       </nav>
     </header>
