@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getRecentPosts } from "@/app/actions";
+import { fetchRecentPosts } from "@/app/actions";
 
 export default async function Aside() {
-  const recentPosts = await getRecentPosts();
+  const recentPosts = await fetchRecentPosts({ take: 10 });
 
   return (
     <>

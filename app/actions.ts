@@ -1,8 +1,8 @@
 import prisma from "./prisma";
 
-export async function getRecentPosts() {
+export async function fetchRecentPosts({ take } : { take: number}) {
   return await prisma.post.findMany({
-    take: 5,
+    take,
     orderBy: {
       createdAt: "desc",
     },
