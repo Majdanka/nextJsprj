@@ -10,18 +10,18 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <main className="w-[69%] bg-orange-300 rounded-3xl h-[80vh] flex flex-col items-center">
-        <h1>Welcome!</h1>
-        <div className="w-full h-[40vh] flex items-center justify-evenly">
+      <main className="w-full md:w-[69%] bg-orange-300 rounded-3xl md:h-[80vh] flex flex-col items-center h-[130vh]">
+        <h1 className="text-3xl p-2">Welcome!</h1>
+        <div className="w-full h-[65vh] md:h-[40vh] flex items-center justify-evenly md:flex-row flex-col">
           <ImageLink src="" alt="Gallery" href="/gallery" />
           <ImageLink src="" alt="Blog" href="/blog" />
         </div>
-        <div className="w-full h-[40vh] flex items-center justify-evenly">
+        <div className="w-full h-[65vh] md:h-[40vh] flex items-center justify-evenly md:flex-row flex-col mt-[-3vh]">
           <ImageLink src="" alt="About" href="/about" />
           <ImageLink src="" alt="Contact" href="/contact" />
         </div>
       </main>
-      <aside className="w-[30%] rounded-3xl h-[80vh] bg-violet-300">
+      <aside className="md:m-0 w-full md:w-[30%] rounded-3xl h-[80vh] bg-violet-300">
         <h1>Recent posts: </h1>
         <Aside />
       </aside>

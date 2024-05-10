@@ -5,5 +5,5 @@ export const metadata: Metadata = {
 };
 
 export default function Gallery() {
-  return <div>Gallery</div>;
+  return <main className="w-[99%]">Gallery</main>;
 }
