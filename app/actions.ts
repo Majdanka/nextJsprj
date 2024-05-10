@@ -1,18 +1,20 @@
-import { PrismaClient } from '@prisma/client'
+import prisma from "./prisma";
 
-const prisma = new PrismaClient()
-
-async function main() {
-    const allUsers = await prisma.user.findMany()
-    console.log(allUsers)
+export async function getPosts() {
+  return await prisma.post.findMany({
+    take: 5,
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 }
 
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+export async function addPost(title: string, content: string, authorId: number) {
+    return await prisma.post.create({
+    data: {
+      title,
+      content,
+      authorId
+    },
+  });
+}

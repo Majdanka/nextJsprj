@@ -17,4 +17,14 @@ model User {
   id       Int    @id @default(autoincrement())
   userName String
   password String
+  Post     Post[]
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  title     String   @db.VarChar(255)
+  content   String?
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
 }
