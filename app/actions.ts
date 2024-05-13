@@ -20,7 +20,6 @@ export async function fetchPostById({ id } : { id: number }) {
 }
 
 export async function fetchPostsPages(title: string) {
-  noStore()
   const posts = await prisma.post.findMany({
     where: {
       title: {
