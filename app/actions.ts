@@ -14,7 +14,7 @@ export async function fetchRecentPosts({ take } : { take: number}) {
 export async function fetchPostById({ id } : { id: number }) {
   return await prisma.post.findUnique({
     where: {
-      id,
+      id
     },
   });
 }
@@ -26,8 +26,14 @@ export async function fetchPostsPages() {
   return pages;
 }
 
-export async function fetchPotsByPage({page} : {page: number}) {
+
+export async function fetchPosts({ title, page } : { title: string, page: number }) {
   return await prisma.post.findMany({
+    where: {
+      title: {
+        contains: title,
+      },
+    },
     skip: (page - 1) * 10,
     take: 10,
     orderBy: {

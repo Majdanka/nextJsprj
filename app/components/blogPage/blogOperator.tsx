@@ -1,34 +1,27 @@
-"use client";
-
 import BlogBlock from "./blogBlock";
-import PageChanger from "./pageChanger";
-import { useState } from "react";
-import { fetchPostsPages, fetchPotsByPage } from "@/app/actions";
-import { generatePagination } from "@/app/utils";
+import Pagination from "./pagination";
+import Search from "./search";
+import { fetchPostsPages, fetchPosts } from "@/app/actions";
 
-export default async function BlogOperator() {
-  const [currentPage, setPage] = useState(1);
+export default async function BlogOperator({
+  searchParams,
+}: {
+  searchParams?: { search?: string; page?: number };
+}) {
+  const term = searchParams?.search || "";
+  const page = searchParams?.page || 1;
   const totalPages = await fetchPostsPages();
-  const allPage = generatePagination(currentPage, totalPages);
-  const posts = await fetchPotsByPage({ page: currentPage });
-
-  function handlePreviousPage() {
-    if (currentPage > 1) {
-      setPage((c) => c - 1);
-    }
-  }
-
-  function handleNextPage() {
-    if (currentPage < totalPages) {
-      setPage((c) => c + 1);
-    }
-  }
+  const posts = await fetchPosts({ title: term, page: Number(page) });
 
   return (
     <>
-      <p>{currentPage}</p>
-      <button onClick={handlePreviousPage}>-</button>
-      <button onClick={handleNextPage}>+</button>
+      <Search placeholder="Search posts..." />
+      <div className="grid grid-cols-5 gap-3 pt-3">
+        {posts.map((post) => (
+          <BlogBlock postId={post.id} key={post.id} />
+        ))}
+      </div>
+      <Pagination />
     </>
   );
 }
