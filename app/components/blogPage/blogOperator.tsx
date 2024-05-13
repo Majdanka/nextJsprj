@@ -11,20 +11,22 @@ export default async function BlogOperator({
 }) {
   const term = searchParams?.search || "";
   const page = Number(searchParams?.page) || 1;
-  const totalPages = await fetchPostsPages();
+  const totalPages = await fetchPostsPages(term);
   const posts = await fetchPosts({ title: term, page: page });
 
   return (
     <>
       <Search placeholder="Search posts..." />
       <Suspense fallback="Loading...">
-        <div className="grid grid-cols-5 gap-3 pt-3">
+        <div className="grid grid-cols-5 gap-3 pt-3 w-[98%]">
           {posts.map((post) => (
             <BlogBlock postId={post.id} key={post.id} />
           ))}
         </div>
       </Suspense>
-      <Pagination />
+      <Suspense fallback="Loading...">
+        <Pagination pages={totalPages} current={page} />
+      </Suspense>
     </>
   );
 }

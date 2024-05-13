@@ -6,11 +6,12 @@ export default async function BlogBlock(postId: { postId: number }) {
 
   return (
     <>
-      <div className="p-4 bg-white shadow rounded-md">
-        <Link href={`/blog/${post?.id}`} className="text-xl font-bold">
-          {post?.title}
-        </Link>
-      </div>
+      <Link
+        href={`/blog/${post?.id}`}
+        className="text-xl font-bold hover:bg-black hover:text-white bg-white rounded-xl"
+      >
+        <div className="p-5">{post?.title}</div>
+      </Link>
     </>
   );
 }
