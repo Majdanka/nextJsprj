@@ -7,8 +7,8 @@ export default async function Aside() {
   return (
     <>
       {recentPosts.map((post) => (
-        <Link href={`/blog/${post.id}`} key={post.id} className="w-[95%]">
-          <div className="border-2 border-black text-2xl rounded-xl hover:bg-black hover:text-white w-full flex justify-center items-center mt-3">
+        <Link href={`/blog/${post.id}`} key={post.id} className="w-[95%] mt-3">
+          <div className="border-2 border-black text-2xl rounded-xl hover:bg-black hover:text-white w-full flex justify-center items-center">
             {post.title}
           </div>
         </Link>
