@@ -18,7 +18,7 @@ export default async function BlogOperator({
     <>
       <Search placeholder="Search posts..." />
       <Suspense fallback="Loading...">
-        <div className="grid grid-cols-5 gap-3 pt-3 w-[98%]">
+        <div className="grid  grid-cols-3 md:grid-cols-5 gap-3 pt-3 w-[98%]">
           {posts.map((post) => (
             <BlogBlock postId={post.id} key={post.id} />
           ))}

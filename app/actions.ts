@@ -35,16 +35,25 @@ export async function fetchPostsPages(title: string) {
 
 
 export async function fetchPosts({ title, page } : { title: string, page: number }) {
+  noStore();
   return await prisma.post.findMany({
     where: {
       title: {
         contains: title,
       },
     },
-    skip: (page - 1) * 10,
+    skip: (page - 1) * 25,
     take: 25,
     orderBy: {
       createdAt: "desc",
+    },
+  });
+}
+
+export async function fetchAuthorById({ id } : { id: number }) {
+  return await prisma.user.findUnique({
+    where: {
+      id
     },
   });
 }

@@ -147,7 +147,7 @@ export default async function Pagination({
   }
 
   return (
-    <div className="w-full flex items-center justify-center h-[15vh]">
+    <div className="w-full flex items-center justify-center h-[30vh]">
       {Pagination}
     </div>
   );
