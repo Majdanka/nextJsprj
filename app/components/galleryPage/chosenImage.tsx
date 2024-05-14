@@ -7,7 +7,7 @@ export default function ChosenImage({ img }: { img: string }) {
   return (
     <div
       className={clsx(
-        "bg-slate-300 h-56 w-60 rounded-3xl mt-3 flex flex-col items-center justify-center text-2xl font-bold text-white",
+        "h-56 w-60 rounded-3xl mt-3 flex flex-col items-center justify-center text-2xl font-bold text-white",
         { "bg-blue-300": img == "b3" },
         { "bg-blue-400": img == "b4" },
         { "bg-blue-500": img == "b5" },
