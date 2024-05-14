@@ -1,6 +1,7 @@
+import { useSearchParams, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+
 export default function ImageNav() {
-  function handlePrev() {}
-  function handleNext() {}
   const indexes = [
     "r3",
     "b3",
@@ -17,6 +18,27 @@ export default function ImageNav() {
     "r9",
     "b9",
   ];
+
+  const current = useSearchParams().get("image");
+  const { replace } = useRouter();
+  const pathname = usePathname();
+
+  function handlePrev() {
+    if (current) {
+      const index = indexes.indexOf(current.toString());
+      if (index > 0) {
+        replace(`${pathname}?image=${indexes[index - 1]}`);
+      }
+    }
+  }
+  function handleNext() {
+    if (current) {
+      const index = indexes.indexOf(current.toString());
+      if (index < indexes.length - 1) {
+        replace(`${pathname}?image=${indexes[index + 1]}`);
+      }
+    }
+  }
 
   return (
     <div className="mt-3 flex justify-evenly w-32">
