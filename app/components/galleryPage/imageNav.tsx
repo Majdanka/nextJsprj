@@ -41,7 +41,7 @@ export default function ImageNav() {
   }
 
   return (
-    <div className="mt-3 flex justify-evenly w-32">
+    <div className="md:mt-3 mt-10 flex justify-evenly w-32">
       <button
         onClick={handlePrev}
         className="w-9 h-9 rounded-full bg-slate-300 hover:bg-white hover:text-black text-white font-bold"
