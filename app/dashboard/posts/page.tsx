@@ -1,3 +1,9 @@
+import Breadcrumbs from "@/app/components/dashboard/breadcrumbs";
+
 export default function Posts() {
-  return <main>Posts</main>;
+  return (
+    <main>
+      <Breadcrumbs />
+    </main>
+  );
 }
