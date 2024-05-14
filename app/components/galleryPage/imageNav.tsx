@@ -19,9 +19,11 @@ export default function ImageNav() {
     "b9",
   ];
 
-  const current = useSearchParams().get("image");
+  let current = useSearchParams().get("image");
   const { replace } = useRouter();
   const pathname = usePathname();
+
+  if (!current) current = indexes[0];
 
   function handlePrev() {
     if (current) {

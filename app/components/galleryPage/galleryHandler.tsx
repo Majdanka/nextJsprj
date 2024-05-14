@@ -10,7 +10,7 @@ export default async function GalleryHandler() {
   const { replace } = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const current = searchParams.get("image");
+  const current = searchParams.get("image") ? searchParams.get("image") : "r3";
 
   function handleClick(key: string) {
     const params = new URLSearchParams(searchParams);
