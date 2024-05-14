@@ -1,7 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-import { Span } from "next/dist/trace";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
