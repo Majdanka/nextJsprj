@@ -67,7 +67,7 @@ export default async function GalleryHandler() {
   return (
     <>
       <ChosenImage img={current ? current : "r3"} />
-      <div className="w-full grid grid-cols-4 md:grid-cols-7 gap-1 mt-1">
+      <div className="w-full grid grid-cols-3 md:grid-cols-7 gap-1 mt-1">
         {images}
       </div>
       <ImageNav />

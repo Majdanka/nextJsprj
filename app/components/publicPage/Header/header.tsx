@@ -18,7 +18,7 @@ export default function Header() {
           <NavBar />
         </nav>
       </header>
-      <nav className="md:hidden flex justify-evenly  items-center w-[99%] rounded-full bg-gradient-to-r from-orange-200 to-violet-200 border-collapse h-[5vh] m-1 text-[1.3rem]">
+      <nav className="md:hidden flex justify-evenly  items-center w-[99%] rounded-full bg-gradient-to-r from-orange-200 to-violet-200 border-collapse h-[5vh] m-1 text-[1.25rem]">
         <NavBar />
       </nav>
     </>
