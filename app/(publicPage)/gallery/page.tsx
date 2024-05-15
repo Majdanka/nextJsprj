@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Gallery() {
   return (
-    <main className="w-[99%] bg-orange-300 rounded-3xl md:h-[80vh] flex flex-col items-center h-[96vh]">
+    <main className="w-[99%] bg-orange-300 rounded-3xl md:h-[80vh] flex flex-col items-center h-[160vh]">
       <h1 className="text-4xl font-bold pt-2">Gallery</h1>
       <Suspense fallback="Loading gallery... ">
         <GalleryHandler />
