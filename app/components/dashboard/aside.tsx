@@ -22,7 +22,7 @@ export default function Aside() {
         </Link>
       </nav>
       <div className=" h-[68vh] flex justify-center items-end">
-        <div className="flex py-2 border border-red-400 rounded-3xl w-[98%] items-center justify-center text-red-400 hover:bg-red-300 hover:text-red-500">
+        <div className="flex py-2 border border-red-400 rounded-3xl w-[98%] items-center justify-center text-red-400 hover:bg-red-300 hover:text-red-500 cursor-pointer">
           Log out
           <svg
             xmlns="http://www.w3.org/2000/svg"
