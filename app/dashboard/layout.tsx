@@ -18,7 +18,7 @@ export default function RootLayout({
       className={inter.className + " flex items-center h-screen justify-center"}
     >
       <Aside />
-      <main className="h-[98vh] w-[79%] flex rounded-3xl bg-slate-200">
+      <main className="h-[98vh] w-[79%] flex rounded-3xl bg-slate-200 flex-col items-center">
         {children}
       </main>
     </body>

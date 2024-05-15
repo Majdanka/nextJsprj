@@ -56,3 +56,11 @@ export async function fetchAuthorById({ id } : { id: number }) {
     },
   });
 }
+
+export async function fetchAuthorsPostsCount(authorId: number) {
+  return await prisma.post.count({
+    where: {
+      authorId
+    }
+  });
+}

@@ -27,6 +27,8 @@ export default function Breadcrumbs() {
   }
 
   return (
-    <nav className="w-full flex pl-1 pt-1 text-[1.35rem] font-[500]">{map}</nav>
+    <nav className="w-full flex justify-start pl-1 pt-1 text-[1.35rem] font-[500]">
+      {map}
+    </nav>
   );
 }
