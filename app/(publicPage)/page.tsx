@@ -21,7 +21,7 @@ export default function Home() {
           <ImageLink src="" alt="Contact" href="/contact" />
         </div>
       </main>
-      <aside className="md:m-0 w-full md:w-[30%] rounded-3xl h-[100vh] md:h-[80vh] bg-violet-300 flex flex-col items-center">
+      <aside className="md:m-0 w-full md:w-[30%] rounded-3xl h-[96vh] md:h-[80vh] bg-violet-300 flex flex-col items-center">
         <h1 className="text-3xl m-5">Recent posts: </h1>
         <Aside />
       </aside>
