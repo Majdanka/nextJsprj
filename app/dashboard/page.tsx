@@ -27,7 +27,7 @@ export default function Dashboard() {
         <legend className="ml-2 text-gray-700 font-bold text-[1.2rem]">
           Users
         </legend>
-        <div className="pl-2 mt-2 w-full gird grid-cols-2 gap-2">
+        <div className="pl-2 mt-2 w-full flex flex-wrap justify-evenly">
           <UsersOverview />
         </div>
       </fieldset>
