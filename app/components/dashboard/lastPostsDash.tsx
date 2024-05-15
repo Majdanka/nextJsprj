@@ -2,7 +2,7 @@ import { fetchRecentPosts } from "@/app/actions";
 import Link from "next/link";
 
 export default async function LastPostsDash() {
-  const posts = await fetchRecentPosts({ take: 5 });
+  const posts = await fetchRecentPosts({ take: 4 });
 
   return (
     <>
