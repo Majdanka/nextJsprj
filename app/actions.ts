@@ -1,3 +1,5 @@
+'use server';
+
 import prisma from "./prisma";
 import { unstable_noStore as noStore } from "next/cache";
 
@@ -69,4 +71,15 @@ export async function fetchAuthorsPostsCount(authorId: number) {
 export async function fetchAuthors()
 {
   return await prisma.user.findMany();
+}
+
+export async function deletePostWithId({id} : {id: number | undefined}) {
+  
+  if (id) {
+    return await prisma.post.delete({
+      where: {
+        id
+      }
+    });
+  }
 }

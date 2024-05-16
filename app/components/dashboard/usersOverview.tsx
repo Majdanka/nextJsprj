@@ -6,8 +6,8 @@ export default async function UsersOverview() {
 
   const map = [];
 
-  if (authors.length > 6) {
-    for (let i = 0; i < 5; i++) {
+  if (authors.length > 4) {
+    for (let i = 0; i < 3; i++) {
       const author = authors[0];
       const count = await fetchAuthorsPostsCount(author.id);
       map.push(
