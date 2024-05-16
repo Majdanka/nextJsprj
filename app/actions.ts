@@ -83,3 +83,13 @@ export async function deletePostWithId({id} : {id: number | undefined}) {
     });
   }
 }
+
+export async function addPostDb({ title, content, authorId } : { title: string, content: string, authorId: number }) {
+  return await prisma.post.create({
+    data: {
+      title,
+      content,
+      authorId
+    }
+  });
+}
