@@ -19,7 +19,7 @@ export async function fetchPostById({ id } : { id: number }) {
   });
 }
 
-export async function fetchPostsPages(title: string) {
+export async function fetchPostsPages(title: string, take: number) {
   const posts = await prisma.post.findMany({
     where: {
       title: {
@@ -27,13 +27,13 @@ export async function fetchPostsPages(title: string) {
       },
     },
   });
-  const pages = Math.ceil(posts.length / 25);
+  const pages = Math.ceil(posts.length / take);
 
   return pages;
 }
 
 
-export async function fetchPosts({ title, page } : { title: string, page: number }) {
+export async function fetchPosts({ title, page, take } : { title: string, page: number, take: number}) {
   noStore();
   return await prisma.post.findMany({
     where: {
@@ -41,8 +41,8 @@ export async function fetchPosts({ title, page } : { title: string, page: number
         contains: title,
       },
     },
-    skip: (page - 1) * 25,
-    take: 25,
+    skip: (page - 1) * take,
+    take: take,
     orderBy: {
       createdAt: "desc",
     },

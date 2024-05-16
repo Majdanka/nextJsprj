@@ -1,6 +1,6 @@
 import Breadcrumbs from "@/app/components/dashboard/breadcrumbs";
 
-export default function Posts() {
+export default function PostAdd() {
   return (
     <>
       <Breadcrumbs />
