@@ -11,8 +11,8 @@ export default async function BlogOperator({
 }) {
   const term = searchParams?.search || "";
   const page = Number(searchParams?.page) || 1;
-  const totalPages = await fetchPostsPages(term);
-  const posts = await fetchPosts({ title: term, page: page });
+  const totalPages = await fetchPostsPages(term, 25);
+  const posts = await fetchPosts({ title: term, page: page, take: 25 });
 
   return (
     <>
