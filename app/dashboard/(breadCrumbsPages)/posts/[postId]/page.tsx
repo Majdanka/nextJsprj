@@ -32,7 +32,7 @@ export default async function Post({ params }: { params: { postId: string } }) {
           <p className="text-lg pt-3">{post?.content}</p>
         </div>
       </Suspense>
-      <PostButtons post={post} />
+      <PostButtons post={post} href="/dashboard/posts" />
     </>
   );
 }

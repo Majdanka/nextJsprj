@@ -17,7 +17,7 @@ export default async function LastPostsDash() {
               {"->" + post.title}
             </Link>
           </div>
-          <PostButtons post={post} />
+          <PostButtons post={post} href="/dashboard" />
         </div>
       ))}
     </>

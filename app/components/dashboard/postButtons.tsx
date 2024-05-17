@@ -5,8 +5,10 @@ import { deletePostWithId } from "@/app/actions";
 import { useRouter } from "next/navigation";
 
 export default function PostButtons({
+  href,
   post,
 }: {
+  href: string;
   post: {
     id: number;
     createdAt: Date;
@@ -19,7 +21,7 @@ export default function PostButtons({
 
   async function deletePost() {
     deletePostWithId({ id: post?.id });
-    replace("/dashboard");
+    replace(href);
   }
 
   return (
