@@ -1,9 +1,5 @@
 import { Metadata, ResolvingMetadata } from "next";
-import {
-  fetchPostById,
-  fetchAuthorById,
-  deletePostWithId,
-} from "@/app/actions";
+import { fetchPostById, fetchAuthorById } from "@/app/actions";
 import { Suspense } from "react";
 import PostButtons from "@/app/components/dashboard/postButtons";
 

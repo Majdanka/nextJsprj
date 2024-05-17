@@ -105,3 +105,25 @@ export async function addPost(formData: FormData) {
   revalidatePath("/dashboard/posts");
   redirect("/dashboard/posts");
 }
+
+export async function editPost(formData: FormData) {
+  let title = formData.get("title")?.toString()
+  let content = formData.get("content")?.toString()
+  let postId = formData.get("postId")?.toString()
+  if(!title || !content || !postId) {
+    throw new Error("Title, content and postId are required")
+  }
+  await prisma.post.update({
+    where: {
+      id: parseInt(postId)
+    },
+    data: {
+      title,
+      content
+    }
+  });
+
+  revalidatePath("/dashboard");
+  revalidatePath("/dashboard/posts");
+  redirect("/dashboard/posts");
+}
