@@ -5,8 +5,10 @@ import { deletePostWithId } from "@/app/actions";
 import { useRouter } from "next/navigation";
 
 export default function PostButtons({
+  href,
   post,
 }: {
+  href: string;
   post: {
     id: number;
     createdAt: Date;
@@ -19,13 +21,13 @@ export default function PostButtons({
 
   async function deletePost() {
     deletePostWithId({ id: post?.id });
-    replace("/dashboard");
+    replace(href);
   }
 
   return (
     <div className="w-44 flex justify-evenly items-center">
       <Link
-        href={post?.id + "/edit"}
+        href={"/dashboard/posts/" + post?.id + "/edit"}
         className="border border-black rounded-3xl py-1 px-3 hover:bg-slate-300 font-[500]"
       >
         Edit

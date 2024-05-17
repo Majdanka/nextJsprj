@@ -12,8 +12,16 @@ export default function Breadcrumbs() {
   const map = [];
 
   if (crumbs.length > 3) {
-    map.push(<span className="ml-1 mr-1 text-gray-500">...</span>);
-    map.push(<span className="ml-1 mr-1 text-gray-500">{"->"}</span>);
+    map.push(
+      <span className="ml-1 mr-1 text-gray-500" key={"dots"}>
+        ...
+      </span>
+    );
+    map.push(
+      <span className="ml-1 mr-1 text-gray-500" key={"ar0"}>
+        {"->"}
+      </span>
+    );
   }
   for (let i = crumbs.length - 2; i < crumbs.length; i++) {
     let crumb = crumbs[i];
@@ -25,7 +33,11 @@ export default function Breadcrumbs() {
       </Link>
     );
     if (i < crumbs.length - 1) {
-      map.push(<span className="ml-1 mr-1 text-gray-500">{"->"}</span>);
+      map.push(
+        <span className="ml-1 mr-1 text-gray-500" key={"ar" + (i + 1)}>
+          {"->"}
+        </span>
+      );
     }
   }
 

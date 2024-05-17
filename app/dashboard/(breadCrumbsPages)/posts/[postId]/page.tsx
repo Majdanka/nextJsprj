@@ -1,9 +1,5 @@
 import { Metadata, ResolvingMetadata } from "next";
-import {
-  fetchPostById,
-  fetchAuthorById,
-  deletePostWithId,
-} from "@/app/actions";
+import { fetchPostById, fetchAuthorById } from "@/app/actions";
 import { Suspense } from "react";
 import PostButtons from "@/app/components/dashboard/postButtons";
 
@@ -32,7 +28,7 @@ export default async function Post({ params }: { params: { postId: string } }) {
           <p className="text-lg pt-3">{post?.content}</p>
         </div>
       </Suspense>
-      <PostButtons post={post} />
+      <PostButtons post={post} href="/dashboard/posts" />
     </>
   );
 }
