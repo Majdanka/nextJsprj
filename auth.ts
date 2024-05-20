@@ -4,7 +4,7 @@ import { authConfig } from './auth.config';
 import prisma from './app/prisma';
 import { User } from '.prisma/client';
 import bcrypt from 'bcrypt';
-import { set, z } from 'zod';
+import { z } from 'zod';
  
 async function getUser(userName: string): Promise<User | undefined> {
   try {
@@ -30,6 +30,7 @@ export const { auth, signIn, signOut } = NextAuth({
                     password: z.string()
                 }).parse(credentials);
                 const user = await getUser(formatedCredentials.userName);
+                console.log(user, formatedCredentials);
                 if (!user) {
                     throw new Error('User not found');
                 }
