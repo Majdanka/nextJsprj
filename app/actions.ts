@@ -4,6 +4,8 @@ import prisma from "./prisma";
 import { unstable_noStore as noStore } from "next/cache";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { signIn } from '@/auth';
+import { AuthError } from 'next-auth';
 
 export async function fetchRecentPosts({ take } : { take: number}) {
   noStore();
@@ -126,4 +128,23 @@ export async function editPost(formData: FormData) {
   revalidatePath("/dashboard");
   revalidatePath("/dashboard/posts");
   redirect("/dashboard/posts");
+}
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
+  }
 }
