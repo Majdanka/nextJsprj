@@ -1,14 +1,13 @@
-import NextAuth from 'next-auth';
+import NextAuth, { User } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import prisma from './app/prisma';
-import { User } from '.prisma/client';
-import bcrypt from 'bcrypt';
+import { User as UserP} from '.prisma/client';
 import { z } from 'zod';
  
-async function getUser(userName: string): Promise<User | undefined> {
+async function getUser(userName: string): Promise<UserP | undefined> {
   try {
-    const user : User | null = await prisma.user.findFirst({ where: { userName}});
+    const user : UserP | null = await prisma.user.findFirst({ where: { userName}});
     return user || undefined;
   } catch (error) {
     console.error('Failed to fetch user:', error);
@@ -29,17 +28,18 @@ export const { auth, signIn, signOut } = NextAuth({
                     userName: z.string(),
                     password: z.string()
                 }).parse(credentials);
-                const user = await getUser(formatedCredentials.userName);
-                console.log(user, formatedCredentials);
+                const user: UserP | undefined = await getUser(formatedCredentials.userName);
                 if (!user) {
-                    throw new Error('User not found');
+                    throw new Error("Invalid credentials.");
                 }
-                const passwordMatch = await bcrypt.compare(formatedCredentials.password, user.password);
+                const passwordMatch = (formatedCredentials.password === user.password)
                 if (!passwordMatch) {
-                    throw new Error('Password does not match');
+                    throw new Error("Invalid credentials.");
                 }
+
+                const userData: User = { id: user.id.toString(), name: user.userName};
                 
-                return null
+                return userData;
         }}),
     ],
 });
