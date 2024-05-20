@@ -4,7 +4,7 @@ import { authConfig } from './auth.config';
 import prisma from './app/prisma';
 import { User } from '.prisma/client';
 import bcrypt from 'bcrypt';
-import { z } from 'zod';
+import { set, z } from 'zod';
  
 async function getUser(userName: string): Promise<User | undefined> {
   try {
@@ -17,21 +17,28 @@ async function getUser(userName: string): Promise<User | undefined> {
 }
  
 export const { auth, signIn, signOut } = NextAuth({
-  ...authConfig,
-  providers: [
-    Credentials({
-        async authorize(credentials, request) {
-          const { userName, password } = credentials;
-          const user = await getUser(userName);
-          if (!user) {
-            throw new Error('Invalid credentials');
-          }
-          const isValidPassword = await bcrypt.compare(password, user.password);
-          if (!isValidPassword) {
-            throw new Error('Invalid credentials');
-          }
-          return user;
-        }
-    })
-  ],
+    ...authConfig,
+    providers: [
+        Credentials({
+            credentials: {
+                userName: { label: "User name" },
+                password: {  label: "Password", type: "password" }
+              },
+              async authorize(credentials, req) {
+                const formatedCredentials = z.object({
+                    userName: z.string(),
+                    password: z.string()
+                }).parse(credentials);
+                const user = await getUser(formatedCredentials.userName);
+                if (!user) {
+                    throw new Error('User not found');
+                }
+                const passwordMatch = await bcrypt.compare(formatedCredentials.password, user.password);
+                if (!passwordMatch) {
+                    throw new Error('Password does not match');
+                }
+                
+                return null
+        }}),
+    ],
 });
