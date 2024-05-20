@@ -1,7 +1,7 @@
 "use client";
 
 import { authenticate } from "@/app/actions";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -19,6 +19,7 @@ export default function LoginForm() {
           id="userName"
           name="userName"
           className="border-green-500 focus:outline-green-500 bg-slate-300 border-b-2 mb-10 mt-1"
+          autoComplete="off"
         />
         <label htmlFor="password">Password</label>
         <input
