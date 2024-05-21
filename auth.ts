@@ -4,6 +4,7 @@ import { authConfig } from './auth.config';
 import prisma from './app/prisma';
 import { User as UserP} from '.prisma/client';
 import { z } from 'zod';
+import { cookies } from 'next/headers';
  
 async function getUser(userName: string): Promise<UserP | undefined> {
   try {
@@ -36,6 +37,9 @@ export const { auth, signIn, signOut } = NextAuth({
                 if (!passwordMatch) {
                     throw new Error("Invalid credentials.");
                 }
+                
+                const store = cookies();
+                store.set('userName', user.userName,)
 
                 const userData: User = { id: user.id.toString(), name: user.userName};
                 

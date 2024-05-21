@@ -1,15 +1,21 @@
 import { signOut } from "@/auth";
+import { cookies } from "next/headers";
 
 export default function LogoutButton() {
+  const store = cookies();
+  const user = store.get("userName");
   return (
     <form
       action={async () => {
         "use server";
         await signOut();
+        const store = cookies();
+        store.delete("userName");
       }}
-      className=" h-[68vh] flex justify-center items-end"
+      className=" h-[68vh] flex justify-end flex-col items-center"
     >
-      <button className="flex py-2 border border-red-400 rounded-3xl w-[98%] items-center justify-center text-red-400 hover:bg-red-300 hover:text-red-500 cursor-pointer">
+      <p>Logged in as: {String(user?.value)}</p>
+      <button className="flex py-2 mt-2 border border-red-400 rounded-3xl w-[98%] items-center justify-center text-red-400 hover:bg-red-300 hover:text-red-500 cursor-pointer">
         Log out
         <svg
           xmlns="http://www.w3.org/2000/svg"
