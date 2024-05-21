@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { fetchAuthorById } from "@/app/actions";
 import Link from "next/link";
+import UserFormEdit from "@/app/components/dashboard/userFormEdit";
+import SpecUserOverview from "@/app/components/dashboard/specUserOverview";
 
 export default async function UsersEdit({
   params,
@@ -13,15 +15,25 @@ export default async function UsersEdit({
 
   if (username !== author?.userName) {
     return (
-      <>
-        <h1 className="">Unauthorized</h1>
-        <Link href={`/dashboard/users/${params.userId}`}>
-          Check the user overview
+      <div className="h-screen w-full flex items-center justify-center flex-col">
+        <h1 className="text-3xl font-bold">Unauthorized</h1>
+        <Link
+          href={`/dashboard/users/${params.userId}`}
+          className="rounded-3xl border w-64 flex justify-center items-center border-black px-1 py-2 m-2 bg-green-100 hover:bg-green-200 font-[500]"
+        >
+          {"->"}Check the user overview
         </Link>
-        <Link href="/dashboard/users">Go back to browsing users</Link>
-      </>
+        <Link
+          href="/dashboard/users"
+          className="rounded-3xl border w-64 flex justify-center items-center border-black px-1 py-2 m-2 bg-green-100 hover:bg-green-200 font-[500]"
+        >
+          {"->"}Go back to browsing users
+        </Link>
+      </div>
     );
   } else {
-    return <h1>Authorized</h1>;
+    return;
+    <SpecUserOverview />;
+    <UserFormEdit />;
   }
 }
