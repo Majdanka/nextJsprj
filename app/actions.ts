@@ -55,6 +55,14 @@ export async function fetchPosts({ title, page, take } : { title: string, page: 
   });
 }
 
+export async function fetchCurrentUser({userName}: {userName: string}) {
+  return await prisma.user.findFirst({
+    where: {
+      userName
+    }
+  });
+}
+
 export async function fetchAuthorById({ id } : { id: number }) {
   return await prisma.user.findUnique({
     where: {
@@ -72,9 +80,18 @@ export async function fetchAuthorsPostsCount(authorId: number) {
   });
 }
 
-export async function fetchAuthors()
+export async function fetchAuthors({userName}: {userName: string})
 {
-  return await prisma.user.findMany();
+  return await prisma.user.findMany(
+    {
+      where: {
+        NOT:
+        {
+          userName
+        }
+      }
+    }
+  )
 }
 
 export async function deletePostWithId({id} : {id: number | undefined}) {
