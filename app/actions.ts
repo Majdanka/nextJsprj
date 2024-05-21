@@ -94,6 +94,24 @@ export async function fetchAuthors({userName}: {userName: string})
   )
 }
 
+export async function fetchAuthorsForPage({ term, page, take } : { term: string, page: number, take: number}) {
+  noStore();
+  return await prisma.user.findMany({
+    where: {
+      userName: {
+        contains: term,
+      },
+    },
+    skip: (page - 1) * take,
+    take: take,
+  });
+}
+
+export async function fetchAuthorPages(take: number) {
+  const totalAuthors = await prisma.user.count()-1;
+  return Math.ceil(totalAuthors / take);
+}
+
 export async function deletePostWithId({id} : {id: number | undefined}) {
   
   if (id) {
