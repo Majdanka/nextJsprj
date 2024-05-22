@@ -1,6 +1,13 @@
 import { addPost } from "@/app/actions";
+import { cookies } from "next/headers";
+import { fetchCurrentUser } from "@/app/actions";
 
-export default function AddPostForm() {
+export default async function AddPostForm() {
+  const userName = cookies().get("userName")?.value;
+  let current = null;
+  if (userName) {
+    current = await fetchCurrentUser({ userName });
+  }
   return (
     <fieldset className="border border-black rounded-3xl w-[98%] flex flex-col justify-center items-center h-[91.5vh]">
       <legend className="ml-1">Add post data</legend>
@@ -18,6 +25,7 @@ export default function AddPostForm() {
           placeholder="Content"
           className="min-h-[72vh] rounded-xl my-1 border-2 border-slate-400 placeholder:text-slate-500 pl-1 bg-slate-300 focus:border-green-600 focus:outline-none resize-none"
         />
+        <input type="hidden" name="authorId" value={current?.id} />
         <button
           type="submit"
           className="border-2 py-2 my-1 bg-green-200 hover:bg-green-300 font-[500] hover:text-green-900 border-green-400 rounded-3xl"
