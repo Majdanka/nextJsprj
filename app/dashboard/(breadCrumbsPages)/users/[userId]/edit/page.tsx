@@ -32,8 +32,15 @@ export default async function UsersEdit({
       </div>
     );
   } else {
-    return;
-    <SpecUserOverview />;
-    <UserFormEdit />;
+    return (
+      <div className="w-full h-screen flex">
+        <div className="w-1/2 m-0 p-0 h-[90vh] flex justify-center items-center flex-col text-3xl font-semibold rounded-3xl border">
+          <SpecUserOverview id={Number(params.userId)} />
+        </div>
+        <div className="w-1/2 m-0 p-0 h-[90vh] flex">
+          <UserFormEdit author={author} />
+        </div>
+      </div>
+    );
   }
 }

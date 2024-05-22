@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import { cookies } from "next/headers";
 
 export async function fetchRecentPosts({ take } : { take: number}) {
   noStore();
@@ -182,4 +183,71 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+export async function changeUsername(formData: FormData) {
+  let username = formData.get("username")?.toString()
+  let password = formData.get("password")?.toString()
+  let id = formData.get("current")?.toString()
+  if(!username || !password || !id) {
+    throw new Error("Username and password are required")
+  }
+  const author = await prisma.user.findUnique({
+    where: {
+      id: parseInt(id)
+    }
+  });
+  const oldPassword = author?.password;
+  if(oldPassword !== password) {
+    throw new Error("Incorrect password")
+  }
+
+  await prisma.user.update({
+    where: {
+      id: parseInt(id)
+    },
+    data: {
+      userName: username
+    }
+  });
+  cookies().set("userName", username);
+  redirect(`/dashboard/users/${id}/`, );
+}
+
+export async function changePassword(formData: FormData)
+{
+  let password = formData.get("password")?.toString()
+  let newPassword = formData.get("newpassword")?.toString()
+  let repeat = formData.get("reppassword")?.toString()
+  let id = formData.get("current")?.toString()
+  if(!password || !newPassword || !id || !repeat) {
+    throw new Error("All inputs are required")
+  }
+  if(repeat !== newPassword) {
+    throw new Error("Passwords do not match")
+  }
+  if(password === newPassword) {
+    throw new Error("New password cannot be the same as the old one")
+  }
+  const author = await prisma.user.findUnique({
+    where: {
+      id: parseInt(id)
+    }
+  });
+
+  const oldPassword = author?.password;
+  if(oldPassword !== password) {
+    throw new Error("Incorrect password")
+  }
+
+  await prisma.user.update({
+    where: {
+      id: parseInt(id)
+    },
+    data: {
+      password: newPassword
+    }
+  });
+
+  redirect(`/dashboard/users/${id}`);
 }
