@@ -14,7 +14,7 @@ export default async function AddUserPage() {
   } else {
     return (
       <div className="w-full h-[80vh] flex items-center justify-center text-3xl font-semibold">
-        You don't have acces to this page
+        You don&#39t have acces to this page
       </div>
     );
   }
