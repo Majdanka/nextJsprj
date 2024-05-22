@@ -127,15 +127,15 @@ export async function deletePostWithId({id} : {id: number | undefined}) {
 export async function addPost(formData: FormData) {
   let title = formData.get("title")?.toString()
   let content = formData.get("content")?.toString()
-  if(!title || !content) {
+  let authorId = formData.get("authorId")?.toString()
+  if(!title || !content || !authorId) {
     throw new Error("Title and content are required")
   }
-  const { authorId } = { authorId: 1 };
   await prisma.post.create({
     data: {
       title,
       content,
-      authorId
+      authorId: parseInt(authorId)
     }
   });
 
