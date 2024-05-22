@@ -6,9 +6,9 @@ Project's goal is to learn using the Next.js framework by building a simple app 
 
 ### Essential used technologies
 
--[Next.js](https://nextjs.org/) 
-*[Vercel deployment and PostgressSQL database](https://vercel.com/)
-+[Prisma ORM](https://www.prisma.io/)
+- [Next.js](https://nextjs.org/)
+* [Vercel deployment and PostgressSQL database](https://vercel.com/)
++ [Prisma ORM](https://www.prisma.io/)
 
 ## Project running
 
