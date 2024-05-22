@@ -5,6 +5,7 @@ import {
 } from "@/app/actions";
 import Link from "next/link";
 import { cookies } from "next/headers";
+import AddUserButton from "./addUserButton";
 
 export default async function UsersOverview() {
   const store = cookies();
@@ -76,5 +77,14 @@ export default async function UsersOverview() {
     }
   }
 
-  return <>{map}</>;
+  return (
+    <>
+      {currentUser && currentUser.id == 1 && (
+        <div className="w-[95%]">
+          <AddUserButton />
+        </div>
+      )}
+      {map}
+    </>
+  );
 }
