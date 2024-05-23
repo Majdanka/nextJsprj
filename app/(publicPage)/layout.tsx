@@ -18,15 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <body
+    <div
       className={
-        "flex flex-wrap justify-center items-center m-0 p-0 bg-slate-300 flex-col md:flex-row " +
+        "flex flex-wrap justify-center items-center m-0 p-0 bg-slate-300 flex-col md:flex-row w-full h-screen" +
         inter.className
       }
     >
       <Header />
       {children}
       <Footer />
-    </body>
+    </div>
   );
 }

@@ -193,6 +193,7 @@ export async function authenticate(
     }
     throw error;
   }
+  redirect("/dashboard");
 }
 
 export async function changeUsername(formData: FormData) {
