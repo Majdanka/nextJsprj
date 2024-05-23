@@ -19,7 +19,7 @@ export async function fetchRecentPosts({ take }: { take: number }) {
 }
 
 export async function fetchPostById({ id }: { id: number }) {
-  return await prisma.post.findUnique({
+  return await prisma.post.findFirst({
     where: {
       id,
     },
