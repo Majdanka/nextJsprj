@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { fetchAuthorById, fetchCurrentUser } from "@/app/actions";
 import Link from "next/link";
 import DeleteUserButton from "@/app/components/dashboard/deleteUserButton";
+import { notFound } from "next/navigation";
 
 export default async function Users({
   params,
@@ -14,6 +15,9 @@ export default async function Users({
   let current = null;
   if (username) {
     current = await fetchCurrentUser({ userName: username });
+  }
+  if (!author) {
+    return notFound();
   }
   return (
     <>

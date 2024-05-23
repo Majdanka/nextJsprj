@@ -14,13 +14,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <body
-      className={inter.className + " flex items-center h-screen justify-center"}
+    <div
+      className={
+        inter.className + " flex items-center h-screen justify-center w-full"
+      }
     >
       <Aside />
       <main className="h-[98vh] w-[79%] flex rounded-3xl bg-slate-200 flex-col items-center">
         {children}
       </main>
-    </body>
+    </div>
   );
 }

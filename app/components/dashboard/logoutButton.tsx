@@ -8,9 +8,8 @@ export default function LogoutButton() {
     <form
       action={async () => {
         "use server";
+        cookies().delete("userName");
         await signOut();
-        const store = cookies();
-        store.delete("userName");
       }}
       className=" h-[68vh] flex justify-end flex-col items-center"
     >

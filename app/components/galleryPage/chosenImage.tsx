@@ -1,6 +1,18 @@
 import clsx from "clsx";
 
 export default function ChosenImage({ img }: { img: string }) {
+  if (
+    (img[0] != "r" && img[0] != "b") ||
+    Number(img[1]) < 3 ||
+    Number(img[1]) > 9
+  ) {
+    return (
+      <div className="h-56 w-60 rounded-3xl mt-3 flex flex-col items-center justify-center text-2xl font-bold text-white border border-white bg-slate-500">
+        Invalid image
+      </div>
+    );
+  }
+
   const text =
     (img[0] == "r" ? "Czerwony" : "Niebieski") + " " + (Number(img[1]) - 2);
 

@@ -3,6 +3,7 @@ import { fetchAuthorById } from "@/app/actions";
 import Link from "next/link";
 import UserFormEdit from "@/app/components/dashboard/userFormEdit";
 import SpecUserOverview from "@/app/components/dashboard/specUserOverview";
+import { notFound } from "next/navigation";
 
 export default async function UsersEdit({
   params,
@@ -12,7 +13,9 @@ export default async function UsersEdit({
   const store = cookies();
   const username = store.get("userName")?.value;
   const author = await fetchAuthorById({ id: Number(params.userId) });
-
+  if (!author) {
+    return notFound();
+  }
   if (username !== author?.userName) {
     return (
       <div className="h-screen w-full flex items-center justify-center flex-col">
