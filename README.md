@@ -9,6 +9,7 @@ Project's goal is to learn using the Next.js framework by building a simple app 
 - [Next.js](https://nextjs.org/)
 * [Vercel deployment and PostgressSQL database](https://vercel.com/)
 + [Prisma ORM](https://www.prisma.io/)
++ [NextAuth](https://next-auth.js.org/)
 
 ## Project running
 
