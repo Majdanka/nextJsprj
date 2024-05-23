@@ -287,6 +287,16 @@ export async function deleteUser(formData: FormData) {
   if (!userId) {
     throw new Error("User ID is required");
   }
+
+  await prisma.post.updateMany({
+    where: {
+      authorId: parseInt(userId),
+    },
+    data: {
+      authorId: 1,
+    },
+  });
+
   await prisma.user.delete({
     where: {
       id: parseInt(userId),
