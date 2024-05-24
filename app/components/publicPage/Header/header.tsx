@@ -1,5 +1,6 @@
 import Logo from "./logo";
 import NavBar from "./navBar";
+import NavBarMobile from "./navBarMobile";
 import Link from "next/link";
 
 export default function Header() {
@@ -18,8 +19,8 @@ export default function Header() {
           <NavBar />
         </nav>
       </header>
-      <nav className="md:hidden flex justify-evenly  items-center w-[99%] rounded-full bg-gradient-to-r from-orange-200 to-violet-200 border-collapse h-[5vh] m-1 text-[1.25rem]">
-        <NavBar />
+      <nav className="flex-col md:hidden flex justify-evenly  items-center w-[99%] rounded-3xl bg-gradient-to-r from-orange-200 to-violet-200 border-collapse m-1 text-[1.25rem]">
+        <NavBarMobile />
       </nav>
     </>
   );

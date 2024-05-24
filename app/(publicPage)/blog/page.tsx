@@ -11,7 +11,7 @@ export default function Blog({
   searchParams?: { search?: string; page?: number };
 }) {
   return (
-    <main className="w-full md:w-[99%] bg-orange-300 rounded-3xl md:h-[80vh] flex flex-col items-center h-[160vh]">
+    <main className="w-full md:w-[99%] bg-orange-300 rounded-3xl md:h-[80vh] flex flex-col items-center h-fit py-1 md:py-0">
       <BlogOperator searchParams={searchParams} />
     </main>
   );
