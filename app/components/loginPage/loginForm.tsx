@@ -7,11 +7,11 @@ export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
 
   return (
-    <fieldset className="border-2 bg-slate-300 border-green-600 rounded-3xl w-1/3 h-[80vh] text-2xl text-green-700 font-bold">
+    <fieldset className="border-2 bg-slate-300 border-green-600 rounded-3xl w-1/3 h-fit p-8 md:p-0 md:h-[80vh] text-2xl text-green-700 font-bold">
       <legend className="ml-1 font-bold">Log in</legend>
       <form
         action={dispatch}
-        className="flex flex-col justify-center items-center w-full h-[80vh]"
+        className="flex flex-col justify-center items-center w-full h-fit md:h-[80vh]"
       >
         <label htmlFor="userName">User name</label>
         <input
@@ -30,11 +30,11 @@ export default function LoginForm() {
         />
         <button
           type="submit"
-          className="bg-green-600 text-white rounded-lg px-2 py-1 hover:bg-green-700"
+          className="bg-green-600 text-white rounded-lg p-24 py-1 hover:bg-green-700"
         >
           Log in
         </button>
-        <p className="text-red-500">{errorMessage}</p>
+        <p className="text-red-500 mt-5">{errorMessage}</p>
       </form>
     </fieldset>
   );
