@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import Aside from "../components/dashboard/aside";
+import MobileAside from "../components/dashboard/mobileAside";
 
 export const metadata = {
   title: "Dashboard",
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <div
       className={
-        inter.className + " flex items-center h-screen justify-center w-full"
+        inter.className +
+        " flex items-center h-screen justify-center w-full flex-row flex-wrap"
       }
     >
       <Aside />
+      <MobileAside />
       <main className="h-[98vh] w-[79%] flex rounded-3xl bg-slate-200 flex-col items-center">
         {children}
       </main>
