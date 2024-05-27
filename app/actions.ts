@@ -182,6 +182,8 @@ export async function authenticate(
 ) {
   try {
     await signIn("credentials", formData);
+    revalidatePath("/dashboard");
+    redirect("/dashboard");
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
@@ -193,7 +195,6 @@ export async function authenticate(
     }
     throw error;
   }
-  redirect("/dashboard");
 }
 
 export async function changeUsername(formData: FormData) {
