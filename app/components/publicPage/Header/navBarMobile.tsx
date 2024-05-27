@@ -18,16 +18,16 @@ export default function NavBarMobile() {
         <div className="w-full hover:text-blue-500 flex justify-center items-center">
           <Link href="/">Home</Link>
         </div>
-        <div className="w-full hover:text-blue-500 flex justify-center items-center">
+        <div className="w-full hover:text-blue-500 flex justify-center items-center tracking-wider text-lg py-1">
           <Link href="/gallery">Gallery</Link>
         </div>
-        <div className="w-full hover:text-blue-500 flex justify-center items-center">
+        <div className="w-full hover:text-blue-500 flex justify-center items-center tracking-wider text-lg py-1">
           <Link href="/blog">Blog</Link>
         </div>
-        <div className="w-full hover:text-blue-500 flex justify-center items-center">
+        <div className="w-full hover:text-blue-500 flex justify-center items-center tracking-wider text-lg py-1">
           <Link href="/about">About</Link>
         </div>
-        <div className="w-full hover:text-blue-500 flex justify-center items-center">
+        <div className="w-full hover:text-blue-500 flex justify-center items-center tracking-wider text-lg py-1">
           <Link href="/contact">Contact</Link>
         </div>
       </div>
