@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Dashboard() {
   return (
     <>
-      <fieldset className="mt-2 w-[98%] border border-gray-700 rounded-3xl bg-slate-300 h-[60vh] flex-col flex items-center">
+      <fieldset className="mt-2 w-[98%] border border-gray-700 rounded-3xl bg-slate-300 h-fit pb-3 md:pb-0 md:h-[60vh] flex-col flex items-center">
         <legend className="ml-2 text-gray-700 font-bold text-[1.2rem]">
           Latest posts
         </legend>
@@ -21,7 +21,7 @@ export default function Dashboard() {
           </Link>
         </div>
       </fieldset>
-      <fieldset className="mt-2 w-[98%] border border-gray-700 rounded-3xl bg-slate-300 h-[34vh] flex-col flex items-center">
+      <fieldset className="mt-2 w-[98%] border border-gray-700 rounded-3xl bg-slate-300 pb-3 md:pb-0 h-fit md:h-[34vh] flex-col flex items-center">
         <legend className="ml-2 text-gray-700 font-bold text-[1.2rem]">
           Users
         </legend>

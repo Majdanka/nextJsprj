@@ -6,7 +6,7 @@ export default function MobileAside() {
   return (
     <nav className="w-full flex justify-center items-center flex-col md:hidden">
       <h1 className="mt-20 w-[98%] border border-green-400 rounded-3xl flex justify-center items-center py-2 text-3xl font-semibold bg-green-400 text-white">
-        Personal site dashboard
+        Dashboard
       </h1>
       <aside className="flex rounded-3xl bg-green-400 w-[98%] flex-col items-center justify-center mb-1">
         <button
