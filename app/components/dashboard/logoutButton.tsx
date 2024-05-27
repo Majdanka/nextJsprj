@@ -11,7 +11,7 @@ export default function LogoutButton() {
         cookies().delete("userName");
         await signOut();
       }}
-      className=" h-[68vh] flex justify-end flex-col items-center"
+      className="h-[68vh] flex justify-end flex-col items-center"
     >
       <p>Logged in as: {String(user?.value)}</p>
       <button className="flex py-2 mt-2 border border-red-400 rounded-3xl w-[98%] items-center justify-center text-red-400 hover:bg-red-300 hover:text-red-500 cursor-pointer">

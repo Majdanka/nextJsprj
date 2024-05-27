@@ -18,7 +18,7 @@ export default function RootLayout({
     <div
       className={
         inter.className +
-        " flex items-center h-screen justify-center w-full flex-row flex-wrap"
+        " flex items-center h-screen justify-center w-full flex-col md:flex-row"
       }
     >
       <Aside />
