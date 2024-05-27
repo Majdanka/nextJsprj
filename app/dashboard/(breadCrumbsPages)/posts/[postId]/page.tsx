@@ -20,7 +20,7 @@ export default async function Post({ params }: { params: { postId: string } }) {
   return (
     <>
       <Suspense fallback="Loading post data...">
-        <div className="w-full flex flex-col items-center h-[86vh]">
+        <div className="w-full flex flex-col items-center h-fit pt-1 pb-3 md:py-0 md:h-[86vh]">
           <h1 className="text-3xl font-bold pt-3">{post?.title}</h1>
           <p className="text-slate-400 text-md">
             Written on {formatedDate} by {author?.userName}

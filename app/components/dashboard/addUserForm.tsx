@@ -4,7 +4,7 @@ export default function AddUserForm() {
   return (
     <form
       action={addUser}
-      className="flex flex-col border-2 border-green-400 rounded-3xl h-[75vh] w-1/3 items-center justify-evenly"
+      className="flex flex-col border-2 border-green-400 rounded-3xl h-[75vh] w-5/6 md:w-1/3 items-center justify-evenly"
     >
       <input
         className="rounded-3xl p-3 w-3/4 border-gray-500 focus:outline-none focus:border-2 focus:border-green-500 border"
