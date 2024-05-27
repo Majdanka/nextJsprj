@@ -23,7 +23,7 @@ export default function RootLayout({
     >
       <Aside />
       <MobileAside />
-      <main className="h-[98vh] w-[79%] flex rounded-3xl bg-slate-200 flex-col items-center">
+      <main className="h-fit md:h-[98vh] w-[98%] md:w-[79%] flex rounded-3xl bg-slate-200 flex-col items-center">
         {children}
       </main>
     </div>
