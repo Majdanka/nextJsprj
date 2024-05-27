@@ -12,8 +12,8 @@ export default function EditPostForm({
   } | null;
 }) {
   return (
-    <fieldset className="border border-black rounded-3xl w-[98%] flex flex-col justify-center items-center h-[91.5vh]">
-      <legend className="ml-1">Editing post {post?.id}</legend>
+    <fieldset className="border border-black rounded-3xl w-[98%] pb-5 md:pb-0 flex flex-col justify-center items-center h-fit md:h-[91.5vh]">
+      <legend className="ml-1 pb-5">Editing post {post?.id}</legend>
       <form action={editPost} className="w-2/3 flex flex-col">
         <input type="hidden" name="postId" value={post?.id} />
         <input
@@ -29,7 +29,7 @@ export default function EditPostForm({
           required
           name="content"
           placeholder="Content"
-          className="min-h-[72vh] rounded-xl my-1 border-2 border-slate-400 placeholder:text-slate-500 pl-1 bg-slate-300 focus:border-green-600 focus:outline-none resize-none"
+          className="md:min-h-[72vh] min-h-[36vh] rounded-xl my-1 border-2 border-slate-400 placeholder:text-slate-500 pl-1 bg-slate-300 focus:border-green-600 focus:outline-none resize-none"
         />
         <button
           type="submit"
