@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function MobileAside() {
   return (
     <nav className="w-full flex justify-center items-center flex-col md:hidden">
-      <h1 className="mt-20 w-[98%] border border-green-400 rounded-3xl flex justify-center items-center py-2 text-3xl font-semibold bg-green-400 text-white">
+      <h1 className="mt-[17vh] w-[98%] border border-green-400 rounded-3xl flex justify-center items-center py-2 text-3xl font-semibold bg-green-400 text-white">
         Dashboard
       </h1>
       <aside className="flex rounded-3xl bg-green-400 w-[98%] flex-col items-center justify-center mb-1">
@@ -26,8 +26,8 @@ export default function MobileAside() {
             document
               .querySelector("button > p:last-of-type")
               ?.classList.toggle("hidden");
-            document.querySelector("nav > h1")?.classList.toggle("mt-72");
-            document.querySelector("nav > h1")?.classList.toggle("mt-20");
+            document.querySelector("nav > h1")?.classList.toggle("mt-[27vh]");
+            document.querySelector("nav > h1")?.classList.toggle("mt-[17vh]");
           }}
         >
           <p className="block">Show more</p>

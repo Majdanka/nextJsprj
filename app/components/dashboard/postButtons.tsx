@@ -25,7 +25,7 @@ export default function PostButtons({
   }
 
   return (
-    <div className="w-44 flex justify-evenly items-center">
+    <div className="w-44 flex justify-evenly items-center pb-3 md:pb-0">
       <Link
         href={"/dashboard/posts/" + post?.id + "/edit"}
         className="border border-black rounded-3xl py-1 px-3 hover:bg-slate-300 font-[500]"

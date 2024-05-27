@@ -36,11 +36,11 @@ export default async function UsersEdit({
     );
   } else {
     return (
-      <div className="w-full h-screen flex">
-        <div className="w-1/2 m-0 p-0 h-[90vh] flex justify-center items-center flex-col text-3xl font-semibold rounded-3xl border">
+      <div className="w-full h-fit md:h-screen flex flex-col md:flex-row py-5 md:py-0">
+        <div className="w-full md:w-1/2 m-0 p-0 h-fit md:h-[90vh] flex justify-center items-center flex-col text-3xl font-semibold rounded-3xl border">
           <SpecUserOverview id={Number(params.userId)} />
         </div>
-        <div className="w-1/2 m-0 p-0 h-[90vh] flex">
+        <div className="w-full h-fit md:w-1/2 m-0 p-0 md:h-[90vh] flex">
           <UserFormEdit author={author} />
         </div>
       </div>

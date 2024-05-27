@@ -21,16 +21,16 @@ export default async function Users({
   }
   return (
     <>
-      <div className="h-[80vh] w-full flex items-center justify-evenly flex-col text-3xl font-semibold">
+      <div className="h-fit p-10 md:p-0 md:h-[80vh] w-full flex items-center justify-evenly flex-col text-xl md:text-3xl font-semibold">
         <SpecUserOverview id={Number(params.userId)} />
       </div>
-      <div className="w-1/2 flex items-center justify-center">
+      <div className="w-full md:w-1/2 flex items-center justify-center pb-5 md:pb-0">
         {username == author?.userName && (
           <Link
             href={`/dashboard/users/${params.userId}/edit`}
             className="rounded-3xl border border-green-500 p-3 bg-green-300 font-semibold hover:bg-green-400"
           >
-            Edit user properties
+            Edit user
           </Link>
         )}
         {current && current?.id == 1 && current?.id != author?.id && (
